@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.IO;
-using System.Windows.Forms;
-using System.Diagnostics;
 using System.Reflection;
 
 namespace EcdisLayer
@@ -19,8 +14,6 @@ namespace EcdisLayer
 
         private CompositionContainer _container;
         private List<string> _ecdisPluginNames;
-        private FileVersionInfo _fileVersionInfo;
-        private AssemblyName _assemblyName;
         private string _pluginCatalog;
         private string _assemblyVersion;
 
@@ -29,7 +22,7 @@ namespace EcdisLayer
             // An aggregate catalog that combines multiple catalogs
             var catalog = new AggregateCatalog();
 
-            string executablePath = Path.GetDirectoryName(Application.ExecutablePath);
+            string executablePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
             _pluginCatalog = Path.Combine(executablePath, "EcdisPlugins");
 
@@ -70,7 +63,7 @@ namespace EcdisLayer
             }
             catch (Exception ex)
             {
-                throw(ex);
+                throw (ex);
             }
 
             _ecdisPluginNames.Sort();
@@ -113,14 +106,10 @@ namespace EcdisLayer
                 if (ecdisPlugin.Metadata.EcdisName.Equals(pluginName))
                 {
                     return ecdisPlugin.Value;
-                } 
+                }
             }
             // If not found
             return null;
         }
-
-
-        
-
     }
 }
