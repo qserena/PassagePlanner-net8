@@ -14,16 +14,13 @@
     <Controls:MetroWindow.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
-                
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
-                
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Light.Blue.xaml" />
                 <ResourceDictionary Source="../../Skins/Resources.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <!-- Custom styling TextBox only to be able to override Validation.ErrorTemplate -->
-            <Style x:Key="TextBoxStyle" TargetType="{x:Type TextBox}" BasedOn="{StaticResource MetroTextBox}">
+            <Style x:Key="TextBoxStyle" TargetType="{x:Type TextBox}" BasedOn="{StaticResource MahApps.Styles.TextBox}">
                 <Setter Property="Validation.ErrorTemplate">
                     <Setter.Value>
                         <ControlTemplate>
@@ -67,9 +64,8 @@
         			<Setter.Value>
         				<Custom:StylizedBehaviorCollection>
         					<Custom:BorderlessWindowBehavior />
-        					<Custom:WindowsSettingBehavior/>
-        					
-        				</Custom:StylizedBehaviorCollection>
+                            <Custom:WindowsSettingBehavior/>
+                        </Custom:StylizedBehaviorCollection>
         			</Setter.Value>
         		</Setter>
         		<Setter Property="TitleForeground" Value="White"/>
