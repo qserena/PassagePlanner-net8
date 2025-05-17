@@ -1,7 +1,5 @@
 ﻿using System.Windows;
-using GalaSoft.MvvmLight.Threading;
-using System.Windows.Markup;
-using System.Globalization;
+using GalaSoft.MvvmLight.Threading; 
 using System.Windows.Threading;
 
 namespace PassagePlanner

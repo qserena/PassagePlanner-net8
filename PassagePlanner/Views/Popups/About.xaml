@@ -13,9 +13,7 @@
     <Controls:MetroWindow.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
-                
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Light.Blue.xaml" />
                 <ResourceDictionary Source="../../Skins/Resources.xaml" />
             </ResourceDictionary.MergedDictionaries>
@@ -29,10 +27,9 @@
         		<Setter Property="Custom:StylizedBehaviors.Behaviors">
         			<Setter.Value>
         				<Custom:StylizedBehaviorCollection>
-        					<Custom:BorderlessWindowBehavior Border="{x:Null}"/>
-        					<Custom:WindowsSettingBehaviour/>
-        					<Custom:GlowWindowBehavior/>
-        				</Custom:StylizedBehaviorCollection>
+        					<Custom:BorderlessWindowBehavior/>
+                            <Custom:WindowsSettingBehavior/>
+                        </Custom:StylizedBehaviorCollection>
         			</Setter.Value>
         		</Setter>
         		<Setter Property="TitleForeground" Value="White"/>
@@ -40,9 +37,8 @@
         			<Setter.Value>
         				<ControlTemplate TargetType="{x:Type Controls:MetroWindow}">
         					<!--<Grid Background="{TemplateBinding Background}">-->
-        					<Grid Background="White" Height="385" Width="460">
-
-        						<VisualStateManager.VisualStateGroups>
+                            <Grid Background="White" Height="385" Width="460">
+                                <VisualStateManager.VisualStateGroups>
         							<VisualStateGroup x:Name="LayoutStates">
         								<VisualState x:Name="AfterLoaded">
         									<Storyboard>
@@ -112,7 +108,7 @@
         							</MultiTrigger.Conditions>
         							<Setter Property="Visibility" TargetName="WindowResizeGrip" Value="Visible"/>
         						</MultiTrigger>
-        						<Trigger Property="TitleCaps" Value="True">
+        						<Trigger Property="TitleCharacterCasing" Value="Upper">
         							<Setter Property="Text" TargetName="WindowTitleTextBlock" Value="{Binding Title, Converter={Custom:ToUpperConverter}, RelativeSource={RelativeSource TemplatedParent}}"/>
         						</Trigger>
         					</ControlTemplate.Triggers>
@@ -125,22 +121,10 @@
 	<Controls:MetroWindow.Effect>
 		<DropShadowEffect BlurRadius="10" ShadowDepth="2" Color="Gray" Opacity="0.2"/>
 	</Controls:MetroWindow.Effect>
-    
-    <!--<Border>
-        <Border.Effect>
-            <DropShadowEffect ShadowDepth="2" Color="Black"/>
-
-        </Border.Effect>-->
-	<Grid Background="White">
-		<!--<Grid.Effect>
-            <DropShadowEffect BlurRadius="15" Direction="-90" RenderingBias="Quality" ShadowDepth="2"/>
-        </Grid.Effect>-->
-
-   
 
 
-
-		<Grid.ColumnDefinitions>
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
 			<ColumnDefinition Width="*"/>
 			<ColumnDefinition Width="10*"/>
 		</Grid.ColumnDefinitions>
@@ -152,9 +136,8 @@
 			<RowDefinition Height="*"/>
 			<RowDefinition Height="*"/>
 			<RowDefinition Height="2*"/>
-			<RowDefinition Height="3*"/>
-
-		</Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
 
 		<Image HorizontalAlignment="Left" Height="40" Margin="10,24,0,0" Grid.Column="1" Grid.Row="0" VerticalAlignment="Bottom" Width="Auto" Source="../../Images/SeaWare-Ship-Routing-by-StormGeo-color.png"/>
 		<TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="12,0,0,0" Grid.Row="1" Text="Passage Planner" VerticalAlignment="Top" FontSize="24"/>

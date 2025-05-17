@@ -66,9 +66,9 @@
         		<Setter Property="Custom:StylizedBehaviors.Behaviors">
         			<Setter.Value>
         				<Custom:StylizedBehaviorCollection>
-        					<Custom:BorderlessWindowBehavior Border="{x:Null}"/>
-        					<Custom:WindowsSettingBehaviour/>
-        					<Custom:GlowWindowBehavior/>
+        					<Custom:BorderlessWindowBehavior />
+        					<Custom:WindowsSettingBehavior/>
+        					
         				</Custom:StylizedBehaviorCollection>
         			</Setter.Value>
         		</Setter>
@@ -144,7 +144,7 @@
         							</MultiTrigger.Conditions>
         							<Setter Property="Visibility" TargetName="WindowResizeGrip" Value="Visible"/>
         						</MultiTrigger>
-        						<Trigger Property="TitleCaps" Value="True">
+        						<Trigger Property="TitleCharacterCasing" Value="Upper">
         							<Setter Property="Text" TargetName="WindowTitleTextBlock" Value="{Binding Title, Converter={Custom:ToUpperConverter}, RelativeSource={RelativeSource TemplatedParent}}"/>
         						</Trigger>
         					</ControlTemplate.Triggers>
